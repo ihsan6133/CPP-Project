@@ -8,14 +8,17 @@ public:
   double y;
   double z;
   Vector(double _x, double _y, double _z): x(_x),y(_y),z(_z){}
-  void PrintVector(){
-    std::cout << "x: " << x << std::endl;
-    std::cout << "y: " << y << std::endl;
-    std::cout << "z: " << z << std::endl;
-  }
+
 };
+
+std::ostream& operator<< (std::ostream& output, Vector myVector){
+  output << "x: " << myVector.x << std::endl;
+  output << "y: " << myVector.y << std::endl;
+  output << "x: " << myVector.z;
+  return output;
+}
 
 int main(){
   Vector myvector = {3, 5, 2};
-  myvector.PrintVector();
+  std::cout << myvector;
 }
